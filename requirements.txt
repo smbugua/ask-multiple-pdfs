@@ -1,28 +1,24 @@
-# Ensure latest pip and setup tools
 pip>=23.3.1
 setuptools>=65.5.1
 setuptools-rust
 wheel
 
 # Main dependencies
-langchain==0.0.184
-PyPDF2==3.0.1
-python-dotenv==1.0.0
-streamlit==1.18.1
-openai==0.27.6
-altair==4
+langchain>=0.1.0
+langchain-community>=0.0.10
+langchain-openai>=0.0.2
+PyPDF2>=3.0.1
+python-dotenv>=1.0.0
+streamlit>=1.18.1
+openai>=0.27.6
+altair>=4.0.0
 
-# FAISS installation (preferred method)
-# faiss-cpu==1.7.4
---extra-index-url https://pypi.org/simple
-faiss-cpu==1.7.4
+# Vector store
+faiss-cpu>=1.7.4
 
-# Fix tiktoken installation
-tiktoken==0.5.2  # Upgraded from 0.4.0 to improve compatibility
+# Token handling
+tiktoken>=0.5.2
 
-# Uncomment to use Hugging Face LLMs
-# huggingface-hub==0.14.1
-
-# Uncomment to use Instructor Embeddings
-# InstructorEmbedding==1.0.1
-# sentence-transformers==2.2.2
+# Uncomment if using Hugging Face models
+# huggingface-hub>=0.14.1
+# sentence-transformers>=2.2.2
