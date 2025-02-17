@@ -57,6 +57,31 @@ def handle_userinput(user_question):
             st.write(bot_template.replace(
                 "{{MSG}}", message.content), unsafe_allow_html=True)
 
+def login():
+    """Simple login function with hardcoded credentials."""
+    st.title("Login")
+
+    # Initialize session state for login
+    if 'logged_in' not in st.session_state:
+        st.session_state.logged_in = False
+
+    # If not logged in, show login form
+    if not st.session_state.logged_in:
+        username = st.text_input("Username")
+        password = st.text_input("Password", type="password")
+
+        if st.button("Login"):
+            if username == "admin" and password == "password":
+                st.session_state.logged_in = True
+                st.success("Logged in successfully!")
+            else:
+                st.error("Invalid username or password")
+
+    # If logged in, show the main app
+    if st.session_state.logged_in:
+        st.write("Welcome to the main app!")
+        # Add your main app code here
+
 def main():
     load_dotenv()
     
@@ -92,6 +117,9 @@ def main():
                 # create conversation chain
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
+
+# Call the login function at the start of the app
+login()
 
 if __name__ == '__main__':
     main()
