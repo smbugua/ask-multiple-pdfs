@@ -1,18 +1,26 @@
+# Ensure latest pip and setup tools
 pip>=23.3.1
+setuptools>=65.5.1
+setuptools-rust
+wheel
+
+# Main dependencies
 langchain==0.0.184
 PyPDF2==3.0.1
 python-dotenv==1.0.0
 streamlit==1.18.1
 openai==0.27.6
-# faiss-cpu==1.7.4
---find-links https://github.com/facebookresearch/faiss/releases/tag/v1.7.4
-faiss-cpu
 altair==4
-setuptools-rust
-tiktoken==0.4.0
-# uncomment to use huggingface llms
+
+# FAISS installation (preferred method)
+faiss-cpu==1.7.4
+
+# Fix tiktoken installation
+tiktoken==0.5.2  # Upgraded from 0.4.0 to improve compatibility
+
+# Uncomment to use Hugging Face LLMs
 # huggingface-hub==0.14.1
 
-# uncomment to use instructor embeddings
+# Uncomment to use Instructor Embeddings
 # InstructorEmbedding==1.0.1
 # sentence-transformers==2.2.2
