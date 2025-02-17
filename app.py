@@ -8,9 +8,6 @@ from langchain_openai import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
-from flask import Flask, request, render_template, redirect, url_for
-
-app = Flask(__name__)
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -95,28 +92,6 @@ def main():
                 # create conversation chain
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
-
-@app.route('/upload', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        # Handle the first document upload
-        first_file = request.files.get('first_file')
-        # Save or process the first file as needed
-
-        # Handle the second document upload
-        second_file = request.files.get('second_file')
-        if second_file:
-            # Save or process the second file as needed
-            # Perform compliance check
-            compliance_result = check_compliance(first_file, second_file)
-            return render_template('result.html', compliance=compliance_result)
-
-    return render_template('upload.html')
-
-def check_compliance(first_file, second_file):
-    # Implement your compliance logic here
-    # For example, compare contents, check for specific criteria, etc.
-    return "Compliant"  # or "Non-compliant"
 
 if __name__ == '__main__':
     main()
