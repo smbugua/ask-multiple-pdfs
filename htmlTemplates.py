@@ -23,6 +23,7 @@ css = '''
   padding: 0 1.5rem;
   color: #fff;
 }
+</style>
 '''
 
 bot_template = '''
@@ -41,4 +42,16 @@ user_template = '''
     </div>    
     <div class="message">{{MSG}}</div>
 </div>
+'''
+
+form_template = '''
+<form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+    <label for="first_file">Upload Original Document:</label>
+    <input type="file" name="first_file" id="first_file" required>
+    
+    <label for="second_file">Upload Document to Check:</label>
+    <input type="file" name="second_file" id="second_file" required>
+    
+    <input type="submit" value="Upload and Check Compliance">
+</form>
 '''
