@@ -23,21 +23,39 @@ The application follows these steps to provide responses to your questions:
 
 5. Response Generation: The selected chunks are passed to the language model, which generates a response based on the relevant content of the PDFs.
 
-## Dependencies and Installation
-----------------------------
-To install the MultiPDF Chat App, please follow these steps:
+## Installation Instructions
 
-1. Clone the repository to your local machine.
+To set up the MultiPDF Chat App, follow these steps:
 
-2. Install the required dependencies by running the following command:
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/username/repo-name.git
+   cd repo-name
    ```
+
+2. **Create a Virtual Environment** (optional but recommended):
+   ```bash
+   python -m venv venv
+   # Activate the virtual environment
+   # On Windows
+   venv\Scripts\activate
+   # On macOS/Linux
+   source venv/bin/activate
+   ```
+
+3. **Install Required Dependencies**:
+   ```bash
    pip install -r requirements.txt
    ```
 
-3. Obtain an API key from OpenAI and add it to the `.env` file in the project directory.
-```commandline
-OPENAI_API_KEY=your_secrit_api_key
-```
+4. **Set Up Environment Variables**:
+   Create a `.env` file in the project directory and add the following variables:
+   ```plaintext
+   OPENAI_API_KEY=your_openai_api_key
+   ```
+
+5. **Install Additional Dependencies** (if needed):
+   Ensure you have any additional dependencies installed, such as `streamlit`, `PyPDF2`, and `langchain`.
 
 ## Usage
 -----
@@ -59,6 +77,14 @@ To use the MultiPDF Chat App, follow these steps:
 ## Contributing
 ------------
 This repository is intended for educational purposes and does not accept further contributions. It serves as supporting material for a YouTube tutorial that demonstrates how to build this project. Feel free to utilize and enhance the app based on your own requirements.
+
+## Troubleshooting
+
+If you encounter issues while using the application, consider the following:
+
+- **Error: Missing Environment Variables**: Ensure that your `.env` file is correctly set up with the required variables.
+- **Error: PDF Not Processing**: Make sure the uploaded files are valid PDF documents and not corrupted.
+- **Slow Response Times**: This may occur if the PDFs are large or if there are network issues with the OpenAI API.
 
 ## License
 -------
