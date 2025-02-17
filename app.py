@@ -9,9 +9,6 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 
-# Set page configuration at the very start
-st.set_page_config(page_title="Chat with multiple PDFs", page_icon=":books:")
-
 def get_pdf_text(pdf_docs):
     text = ""
     for pdf in pdf_docs:
@@ -63,6 +60,8 @@ def handle_userinput(user_question):
 def main():
     load_dotenv()
     
+    st.set_page_config(page_title="Chat with multiple PDFs",
+                       page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
     
     if "conversation" not in st.session_state:
@@ -94,10 +93,5 @@ def main():
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
 
-# Directly call the main function
 if __name__ == '__main__':
     main()
-
-
-
-
