@@ -19,6 +19,9 @@ faiss-cpu>=1.7.4
 # Token handling
 tiktoken>=0.5.2
 
+# Flask
+Flask>=3.0.2
+
 # Uncomment if using Hugging Face models
 # huggingface-hub>=0.14.1
 # sentence-transformers>=2.2.2
