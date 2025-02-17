@@ -77,13 +77,9 @@ def login():
             if username == "admin" and password == "password":
                 st.session_state.logged_in = True
                 st.success("Logged in successfully!")
+                st.experimental_rerun()  # Rerun the app to show the main app
             else:
                 st.error("Invalid username or password")
-
-    # If logged in, show the main app
-    if st.session_state.logged_in:
-        st.write("Welcome to the main app!")
-        # Add your main app code here
 
 def main():
     load_dotenv()
@@ -119,11 +115,11 @@ def main():
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
 
-# Call the login function at the start of the app
-login()
-
-if __name__ == '__main__':
+# Determine which part of the app to show
+if 'logged_in' in st.session_state and st.session_state.logged_in:
     main()
+else:
+    login()
 
 
 
