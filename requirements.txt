@@ -13,6 +13,8 @@ openai==0.27.6
 altair==4
 
 # FAISS installation (preferred method)
+# faiss-cpu==1.7.4
+--extra-index-url https://pypi.org/simple
 faiss-cpu==1.7.4
 
 # Fix tiktoken installation
